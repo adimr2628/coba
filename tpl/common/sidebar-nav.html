@@ -1,0 +1,114 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-title">Menu</li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.main">
+                    <i class="icon-speedometer"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-title" ng-if="user.akses.surat_masuk || user.akses.request_keluar || user.akses.acc_keluar || user.akses.lihat_disposisi">Transaksi</li>
+            <li class="nav-item nav-dropdown" ng-if="user.akses.surat_masuk || user.akses.lihat_disposisi">
+                <a class="nav-link nav-dropdown-toggle">
+                    <i class="fa fa-inbox"></i>
+                    Surat Masuk
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item" ng-if="user.akses.lihat_disposisi">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="transaksi.disposisi">
+                            <i class="icon-cursor"></i>
+                            Daftar Disposisi
+                        </a>
+                    </li>
+                    <li class="nav-item" ng-if="user.akses.surat_masuk">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="transaksi.surat_masuk">
+                            <i class="icon-cursor"></i>
+                            Daftar Surat Masuk
+                        </a>
+                    </li>
+                    <li class="nav-item" ng-if="user.akses.surat_masuk">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="transaksi.antrian">
+                            <i class="icon-cursor"></i>
+                            Antrian Surat Masuk
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown" ng-if="user.akses.request_keluar || user.akses.acc_keluar">
+                <a class="nav-link nav-dropdown-toggle">
+                    <i class="fa fa-paper-plane"></i>
+                    Surat Keluar
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item" ng-if="user.akses.request_keluar">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="transaksi.request_keluar">
+                            <i class="icon-cursor"></i>
+                            Pengajuan Surat
+                        </a>
+                    </li>
+                    <li class="nav-item" ng-if="user.akses.acc_keluar">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="transaksi.acc_keluar">
+                            <i class="icon-cursor"></i>
+                            Acc Surat
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-title" ng-if="user.akses.laporan_surat_masuk || user.akses.laporan_surat_keluar">Laporan</li>
+            <li class="nav-item" ng-if="user.akses.laporan_surat_masuk">
+                <a class="nav-link" ui-sref-active="active" ui-sref="laporan.surat_masuk">
+                    <i class="fa fa-book"></i>
+                    Laporan Surat Masuk
+                </a>
+            </li>
+            <li class="nav-item" ng-if="user.akses.laporan_surat_keluar">
+                <a class="nav-link" ui-sref-active="active" ui-sref="laporan.surat_keluar">
+                    <i class="fa fa-book"></i>
+                    Laporan Surat Keluar
+                </a>
+            </li>
+
+            <li class="nav-title" ng-if="user.akses.kode_surat || user.akses.pengguna_user || user.akses.pengguna_akses">Master</li>
+            <li class="nav-item" ng-if="user.akses.kode_surat">
+                <a class="nav-link" ui-sref-active="active" ui-sref="master.kode">
+                    <i class="fa fa-list"></i>
+                    Kode Surat
+                </a>
+            </li>
+            <li class="nav-item" ng-if="user.akses.pengguna_user">
+                <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.user">
+                    <i class="fa fa-user"></i>
+                    Pengguna
+                </a>
+            </li>
+            <li class="nav-item" ng-if="user.akses.pengguna_akses">
+                <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.akses">
+                    <i class="fa fa-users"></i>
+                    Jabatan
+                </a>
+            </li>
+            <!-- <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('pengguna')}" ng-if="user.akses.pengguna_akses || user.akses.pengguna_user">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('pengguna')}" href="#">
+                    <i class="fa fa-user-o"></i>
+                    User Login
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item" ng-if="user.akses.pengguna_akses">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.akses">
+                            <i class="icon-cursor"></i>
+                            Hak Akses
+                        </a>
+                    </li>
+                    <li class="nav-item" ng-if="user.akses.pengguna_user">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="pengguna.user">
+                            <i class="icon-cursor"></i>
+                            Pengguna
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+        </ul>
+    </nav>
+</div>

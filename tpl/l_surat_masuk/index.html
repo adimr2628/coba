@@ -1,0 +1,129 @@
+<div class="animated fadeIn">
+    <div ng-controller="lsuratmasukCtrl">
+        <div class="card">
+            <div class="card-header">
+                <strong class="d-md-down-none">
+                    Laporan Surat Masuk
+                </strong>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6>
+                            Filter
+                        </h6>
+                        <hr>
+                            <div class="row ml-2 mr-2">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label-sm mb-0">
+                                            Periode
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control form-control-sm" datepicker-mode="'month'" datepicker-options="{minMode: 'month'}" is-open="opened.tgl" ng-click="toggle($event, 'tgl')" ng-model="filter.periode" placeholder="Bulan Tahun" type="text" uib-datepicker-popup="MMMM yyyy"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" ng-if="user.tipe_member=='Admin'">
+                                        <label class="col-sm-3 col-form-label-sm mb-0">
+                                            Member
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <ui-select class="w100" ng-model="filter.member" theme="bootstrap">
+                                                <ui-select-match placeholder="Filter Member [Ketikkan Nama Member]">
+                                                    {{ $select.selected.nama }}
+                                                </ui-select-match>
+                                                <ui-select-choices position="down" refresh="getMember($select.search, 'Member')" repeat="member in listMember">
+                                                    {{ member.nama }}
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center mb-3">
+                                <hr>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-default btn-sm" ng-click="reset_filter();">
+                                            <i class="fa fa-refresh">
+                                            </i>
+                                            Reset Filter
+                                        </button>
+                                        <button class="btn btn-primary btn-sm" ng-click="view(filter);">
+                                            <i class="fa fa-search">
+                                            </i>
+                                            Tampilkan
+                                        </button>
+                                        <button class="btn btn-warning btn-sm text-white" ng-click="print(filter);">
+                                            <i class="fa fa-print">
+                                            </i>
+                                            Print
+                                        </button>
+                                        <button class="btn btn-success btn-sm" ng-click="export();">
+                                            <i class="fa fa-download">
+                                            </i>
+                                            Export Excel
+                                        </button>
+                                    </div>
+                                </hr>
+                            </div>
+                        </hr>
+                    </div>
+                </div>
+
+                <div class="border border-info text-center" id="print-area" ng-if="is_view">
+                    <div class="col-md-12 table-responsive">
+                        <br/>
+                        <h4>
+                            Laporan Surat Masuk
+                        </h4>
+                        <span>
+                            Periode : {{ periode | date:"MMMM yyyy" }}
+                        </span>
+                        <br>
+                            <br>
+                                <table border="1px" class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="align-center" style="width: 3%">
+                                                No.
+                                            </th>
+                                            <th class="align-center" style="width: 12%">
+                                                No Surat
+                                            </th>
+                                            <th class="align-center" style="width: 10%">
+                                                Tgl Surat
+                                            </th>
+                                            <th class="align-center" style="width: 10%">
+                                                Tgl Diterima
+                                            </th>
+                                            <th class="align-center" style="width: 15%">
+                                                Pengirim
+                                            </th>
+                                            <th class="align-center" style="width: 25%">
+                                                Perihal
+                                            </th>
+                                            <th class="align-center" style="width: 15%">
+                                                Kode Surat
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="row in laporan" class="align-left">
+                                            <td style="vertical-align: top;" class="align-center">{{ ($index+1) }}</td>
+                                            <td style="vertical-align: top; padding-left: 5px">{{ row.no_surat }}</td>
+                                            <td style="vertical-align: top; padding-left: 5px">{{ row.tgl_surat | date:"dd MMM yyyy" }}</td>
+                                            <td style="vertical-align: top; padding-left: 5px">{{ row.tgl_diterima | date:"dd MMM yyyy" }}</td>
+                                            <td style="vertical-align: top; padding-left: 5px">{{ row.dari }}</td>
+                                            <td style="vertical-align: top; padding-left: 5px">{{ row.perihal }}</td>
+                                            <td style="vertical-align: top; padding-left: 5px">{{ row.kode }} - {{ row.nama }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </br>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="animated fadeIn">
+    <div class="row" ng-controller="dashboardCtrl">
+        <div class="col-md-12">
+            <div class="jumbotron jumbotron-fluid bg-white">
+                <div class="container-fluid">
+                    <!-- <h1 class="display-4">
+                        Fluid jumbotron
+                    </h1>
+                    <p class="lead">
+                        This is a modified jumbotron that occupies the entire horizontal space of its parent.
+                    </p> -->
+                    <div class="row">
+                    	<div class="col-md-3 col-lg-3 col-xl-2">
+                    		<img src="img/ams.png" alt="" class="img-fluid">
+                    	</div>
+                    	<div class="col-md-9 col-lg-9 col-xl-10">
+                    		<p class="display-4">APLIKASI MANAJEMEN SURAT CV. MANDIRI NUSANTARA</p>
+                    		<p class="lead">
+                    			Jl. Sunan Muria VII/19 Dinoyo, Malang
+							</p>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" ng-if="user.akses.surat_masuk">
+            <div class="card-counter bg-primary" ui-sref="transaksi.surat_masuk">
+                <i class="fa fa-inbox">
+                </i>
+                <span class="count-numbers">
+                    {{ jumlahSuratMasuk }}
+                </span>
+                <span class="count-name">
+                    Surat Masuk
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3" ng-if="user.akses.acc_keluar">
+            <div class="card-counter bg-danger" ui-sref="transaksi.acc_keluar">
+                <i class="fa fa-paper-plane">
+                </i>
+                <span class="count-numbers">
+                    {{ jumlahSuratKeluar }}
+                </span>
+                <span class="count-name">
+                    Surat Keluar
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3" ng-if="user.akses.pengguna_user">
+            <div class="card-counter bg-success" ui-sref="pengguna.user">
+                <i class="fa fa-users">
+                </i>
+                <span class="count-numbers">
+                    {{ jumlahPengguna }}
+                </span>
+                <span class="count-name">
+                    Pengguna
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3" ng-if="user.akses.lihat_disposisi">
+            <div class="card-counter bg-warning" ui-sref="transaksi.disposisi">
+                <i class="fa fa-users">
+                </i>
+                <span class="count-numbers">
+                    {{ jumlahDisposisi }}
+                </span>
+                <span class="count-name">
+                    Disposisi
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3" ng-if="user.akses.request_keluar">
+            <div class="card-counter bg-primary" ui-sref="transaksi.request_keluar">
+                <i class="fa fa-users">
+                </i>
+                <span class="count-numbers">
+                    {{ jumlahPengajuan }}
+                </span>
+                <span class="count-name">
+                    Surat Keluar
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

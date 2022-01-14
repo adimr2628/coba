@@ -1,0 +1,35 @@
+table{
+  border-collapse:collapse;
+  font-family:Verdana, Geneva, sans-serif;
+  border:solid black 1px;
+  width: 100%;
+}
+th, td {
+  font-size: 12px;
+  padding: 1px;
+  vertical-align: middle;
+  border:solid black 1px;
+}
+
+th {
+  text-align: center;
+}
+
+html
+{
+    background-color: #FFFFFF;
+    margin: 3px;  /* this affects the margin on the html before sending to printer */
+}
+
+body
+{
+    margin: 2mm 2mm 2mm 2mm; /* margin you want for the content */
+    font-family:Verdana, Geneva, sans-serif;
+    font-size: 12px;
+}
+.text-center, .align-center{
+  text-align: center;
+}
+.text-right, .align-right{
+  text-align: right;
+}
